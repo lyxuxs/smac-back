@@ -21,6 +21,7 @@ app.use('/user', userRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
+  console.log(app);
 });
 
 module.exports = app;
