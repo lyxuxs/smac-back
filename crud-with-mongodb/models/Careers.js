@@ -7,8 +7,8 @@ const careerSchema = new Schema({
     location: String,
     positions: String,
     endDate: String,
-    responsibilities: String,
-    qualifications: String,
+    responsibilities: Array,
+    qualifications: Array,
 
     createdAt: {
       type: Date,
