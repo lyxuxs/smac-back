@@ -6,8 +6,11 @@ const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
 const router = require("./routes/router");
 const newsRoutes = require("./routes/NewsRoutes");
-const https = require("https"),
-  fs = require("fs");
+const https = require("https");
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+var createError = require('http-errors');
+
 
 // const options = {
 //   key: fs.readFileSync("/srv/www/keys/my-site-key.pem"),
@@ -16,23 +19,20 @@ const https = require("https"),
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors())
-
+app.use(cors({ origin: ["http://salemalmakrani.net", "https://salemalmakrani.net", "http://admin.salemalmakrani.net", "https://admin.salemalmakrani.net"] }));//Add your front end url to avoid the cors error
+app.use(logger('dev'));
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 require('dotenv').config();
-
+app.use(function (req, res, next) {
+  next(createError(404));
+});
 connectDB();
 
 app.use(express.json());
 
-const corsOptions = {
-  origin: 'https://salemalmakrani.net',
-  optionsSuccessStatus: 200
-};
-
-app.use(cors(corsOptions));
 
 
 app.use("/api/Carrers", careerRouter);

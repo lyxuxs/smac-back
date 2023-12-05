@@ -4,8 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "test": ""
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
+    "server": "nodemon ./bin/www"
   },
   "keywords": [],
   "author": "",
@@ -13,15 +14,19 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
     "cookie-session": "^2.0.0",
     "cors": "^2.8.5",
+    "debug": "^4.3.4",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "http": "^0.0.1-security",
+    "http-errors": "^2.0.0",
     "https": "^1.0.0",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.2.0",
     "mongoose": "^6.12.2",
+    "morgan": "^1.10.0",
     "nodemon": "^3.0.2"
   },
   "devDependencies": {
