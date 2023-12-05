@@ -9,8 +9,9 @@ const newsRoutes = require("./routes/NewsRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-app.use(cors());
-
+app.use(cors({
+    origin: ['salemalmakrani.net']
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -19,9 +20,6 @@ require('dotenv').config();
 connectDB();
 
 app.use(express.json());
-app.use(cors({
-  origin: '*'
-}));
 app.use("/api/Carrers", careerRouter);
 app.use("/api/News", newsRoutes);
 app.use('/auth', authRoutes);
