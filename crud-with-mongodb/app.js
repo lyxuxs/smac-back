@@ -10,7 +10,7 @@ const newsRoutes = require("./routes/NewsRoutes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 app.use(cors({
-    origin: ['salemalmakrani.net']
+    origin: ['salemalmakrani.net','https://salemalmakrani.net/blog-grid.html']
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
