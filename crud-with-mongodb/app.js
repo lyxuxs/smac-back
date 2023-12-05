@@ -26,9 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 require('dotenv').config();
-app.use(function (req, res, next) {
-  next(createError(404));
-});
+
 connectDB();
 
 app.use(express.json());
